@@ -134,25 +134,47 @@ console.log('Test - sumAll should return 18:', sumAll(array01));
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 let array03 = [-1, 0, .5, -7, 365];
-
-let newArray = [];
+let array04 = [-11, -.5, -3];
 
 function positiveArray(array){
   console.log('running positiveArray:', array);
+  let newArray = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] > 0){
       newArray.push(array[i]);
     }
     if (i + 1 === array.length){
       return newArray;
-    }
+    } 
   }
 }
-//console.log('Test - positiveArray:', positiveArray(array01));
-console.log('Test - positiveArray:', positiveArray(array02));
-//console.log('Test - positiveArray:', positiveArray(array03));
-console.log(newArray);
+console.log('Test - positiveArray should return [1, 2, 3, 5, 7]:', positiveArray(array01));
+console.log('Test - positiveArray empty array:', positiveArray(array02));
+// I tried a few different things to try to get this to come out as an empty array but it kept coming out undefined.
+console.log('Test - positiveArray should return [.5, 356]:', positiveArray(array03));
+console.log('Test - positiveArray should return empty array:', positiveArray(array04));
+
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+/*
+Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+*/
+
+function minMax(array){
+  console.log('running minMax');
+  let minNum = Math.min(...array);
+  let maxNum = Math.max(...array);
+  let minMaxArray = [minNum, maxNum];
+  return minMaxArray;
+}
+
+console.log('testing minMax:', minMax([1, 2, 3, 4, 77]));
+console.log(array01);
+console.log('testing minMax function on array01:', minMax(array01));
+console.log(array03);
+console.log('testing minMax function on array03:', minMax(array03));
+
+// Comments - This one took some extra research.  I tried a few different things until I found out I had to use the 
+// spread operator to convert the array to a list so I could use Math.min/Math.max on the array.  
